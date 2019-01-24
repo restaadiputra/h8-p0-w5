@@ -1,5 +1,6 @@
 // Logic Challenge - Most Frequent Largest Numbers
 function sorting(arrNumber) {
+  // using bubble
   for(var i = 0; i < arrNumber.length; i++) {
     for(var j = i; j < arrNumber.length; j++) {
       if(arrNumber[i] < arrNumber[j]) {
@@ -8,6 +9,18 @@ function sorting(arrNumber) {
         arrNumber[j] = temp
       }
     }
+  }
+  return arrNumber
+}
+
+function alt_sorting(arrNumber) {
+  // using insertion
+  for(var i = 0; i < arrNumber.length; i++) {
+    var temp = arrNumber[i]
+    for(var j = i - 1; j >= 0 && arrNumber[j] < temp; j--) {
+      arrNumber[j + 1] = arrNumber[j]
+    }
+    arrNumber[j + 1] = temp
   }
   return arrNumber
 }
